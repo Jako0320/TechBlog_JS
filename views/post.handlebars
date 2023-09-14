@@ -1,0 +1,29 @@
+{{#> main}}
+  <h1>{{post.title}}</h1>
+  <p>Posted by: {{post.User.username}}</p>
+  <p>Date: {{formatDate post.createdAt}}</p>
+
+  <div class="post-content">
+    {{{post.content}}}
+  </div>
+
+  {{#if isAuthenticated}}
+    <h2>Add a Comment</h2>
+    <form action="/add-comment/{{post.id}}" method="POST">
+      <label for="comment">Comment:</label>
+      <textarea id="comment" name="comment" rows="3" required></textarea>
+      <button type="submit">Submit Comment</button>
+    </form>
+  {{/if}}
+
+  <h2>Comments</h2>
+  <ul class="comments">
+    {{#each comments}}
+      <li>
+        <p>{{this.content}}</p>
+        <p>Comment by: {{this.User.username}}</p>
+        <p>Date: {{formatDate this.createdAt}}</p>
+      </li>
+    {{/each}}
+  </ul>
+{{/main}}

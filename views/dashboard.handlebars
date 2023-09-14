@@ -1,0 +1,27 @@
+{{#> main}}
+  <h1>Welcome to Your Dashboard, {{user.username}}!</h1>
+
+  <h2>Your Blog Posts</h2>
+  {{#if posts.length}}
+    <ul>
+      {{#each posts}}
+        <li>
+          <a href="/post/{{this.id}}">{{this.title}}</a>
+          <button class="delete-post" data-post-id="{{this.id}}">Delete</button>
+          <button class="edit-post" data-post-id="{{this.id}}">Edit</button>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>You haven't created any blog posts yet. <a href="/create-post">Create one now</a></p>
+  {{/if}}
+
+  <h2>Create a New Blog Post</h2>
+  <form action="/create-post" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" rows="4" required></textarea>
+    <button type="submit">Create Post</button>
+  </form>
+{{/main}}
