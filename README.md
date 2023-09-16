@@ -17,14 +17,12 @@ undefined
 Simply run npm start
 
 ## Usage
-NA
+[Heroku deployement](https://techblog-js14-cb79310e3de6.herokuapp.com/)
 
 ## License
 
   
-This application is covered under the None license. [License]( undefined )
-
-  undefined
+This application is not covered under any license. 
 
 
 ## Contributing
